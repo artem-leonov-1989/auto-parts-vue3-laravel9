@@ -17,7 +17,7 @@
 <script>
 
 import {axiosInstance} from "../../config/axios";
-import filterBar from "./filter-bar.vue";
+import filterBar from "./filter/filter-bar.vue";
 
 export default {
     name: "main-page",
