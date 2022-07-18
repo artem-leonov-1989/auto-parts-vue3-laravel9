@@ -1,18 +1,42 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <router-link :to="{name: 'main-page'}" class="navbar-brand">Бренд</router-link>
+    <nav-bar-shopper></nav-bar-shopper>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <filter-bar :categories="categories">
+
+                </filter-bar>
+            </div>
+            <div class="col-sm-10">
+
+            </div>
         </div>
-    </nav>
+    </div>
 </template>
 
 <script>
-import ManuItem from "./manu-item.vue";
+
+import {axiosInstance} from "../../config/axios";
+import filterBar from "./filter-bar.vue";
 
 export default {
     name: "main-page",
     components: {
-        ManuItem,
+        filterBar,
+    },
+    data() {
+        return {
+            categories: []
+        }
+    },
+    mounted() {
+        axiosInstance.get('/categories/')
+            .then(response => {
+                this.categories = response.data.data;
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
 }
 </script>
