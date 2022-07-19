@@ -2,5 +2,6 @@ body {
     margin: 0;
 }
 .nav-link {
-    font-weight: bold;
+    font-weight: bolder;
+    color: white;
 }
