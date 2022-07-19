@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
+const instance = axios.create({
     baseURL: 'http://auto-parts.test/api/',
-    timeout: 5000,
+    timeout: 1000,
+    headers: {'Accept': 'application/json'}
 });
 
-export {axiosInstance};
+export {instance};
