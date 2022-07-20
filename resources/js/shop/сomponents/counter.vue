@@ -10,12 +10,14 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4" v-else>
+    <div class="row row-cols-1 row-cols-lg-4 g-4" v-else>
         <card v-for="card in showCards"
               :key=card.id
-              :id = card.id
-              :name = card.name
-        >
+              :id=card.id
+              :name=card.name
+              :manufacturer_code=card.manufacturer_code
+              :manufacturer=card.manufacturer
+              :price=card.price>
         </card>
     </div>
 </template>

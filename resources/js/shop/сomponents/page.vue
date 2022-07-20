@@ -32,14 +32,5 @@ export default {
             this.idCategory = id;
         },
     },
-    mounted() {
-        /*Promise.all([
-            this.$query.get('categories'),
-            this.$query.get('parts')
-        ]).then(([categories, parts]) => {
-            this.categories = categories.data.data;
-            this.parts = parts.data.data;
-        });*/
-    }
 }
 </script>

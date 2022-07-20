@@ -21,15 +21,15 @@
                 </ul>
             </div>
         </div>
+        <login></login>
     </nav>
 </template>
 
 <script>
+import login from "./login.vue";
 export default {
-    name: "nav-bar"
+    components: {
+        login
+    }
 }
 </script>
-
-<style scoped>
-
-</style>
