@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         chooseCategory(id) {
-            console.log(id);
+            this.$emit('chooseCategoryId', id);
         }
     },
     mounted() {

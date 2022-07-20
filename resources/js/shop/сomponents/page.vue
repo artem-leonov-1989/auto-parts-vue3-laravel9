@@ -3,10 +3,10 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-2">
-                <filter-bar></filter-bar>
+                <filter-bar @chooseCategoryId = "downloadByCategory"></filter-bar>
             </div>
-            <div class="col-5">
-                <counter></counter>
+            <div class="col-8">
+                <counter :idCategory = "idCategory"></counter>
             </div>
         </div>
     </div>
@@ -24,11 +24,13 @@ export default {
     },
     data() {
         return {
-
+            idCategory: null,
         }
     },
     methods: {
-
+        downloadByCategory(id) {
+            this.idCategory = id;
+        },
     },
     mounted() {
         /*Promise.all([
