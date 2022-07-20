@@ -51,6 +51,8 @@ class UserController extends Controller
         $response = [
             'success' => $success,
             'message' => $message,
+            'user_name' => Auth::user()->name,
+            'user_id' => Auth::id(),
         ];
         return response()->json($response);
     }
@@ -69,6 +71,14 @@ class UserController extends Controller
         $response = [
             'success' => $success,
             'message' => $message,
+        ];
+        return response()->json($response);
+    }
+
+    public function currentUser() {
+        $response = [
+            'user_name' => Auth::user()->name,
+            'user_id' => Auth::id(),
         ];
         return response()->json($response);
     }

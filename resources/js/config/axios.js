@@ -7,4 +7,9 @@ const instance = axios.create({
     timeout: 1000,
 });
 
-export {instance};
+const sanctum = axios.create({
+    baseURL: 'http://auto-parts.test/',
+    timeout: 1000,
+})
+
+export {instance, sanctum};
