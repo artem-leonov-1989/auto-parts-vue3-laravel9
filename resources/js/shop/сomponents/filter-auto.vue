@@ -1,7 +1,8 @@
 <template>
     <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-warning" v-for="auto in autos"
+        <button type="button" class="btn" v-for="auto in autos"
                 :key = auto.id
+                :class="buttonClass(auto.id)"
                 @click = 'chooseModel(auto.id)'>
             {{ auto.name }}
         </button>
@@ -9,7 +10,12 @@
 </template>
 
 <script>
+import filterButtonSelect from "../mixins/filterButtonSelect";
+
 export default {
+    mixins: [
+      filterButtonSelect,
+    ],
     data() {
         return {
             autos:[],
@@ -17,8 +23,9 @@ export default {
     },
     methods: {
         chooseModel(id) {
+            this.selectId = id;
             this.$emit('chooseModelId', id);
-        }
+        },
     },
     mounted() {
         this.$query.get('autos')
