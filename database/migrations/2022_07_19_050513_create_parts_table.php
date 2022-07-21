@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('manufacturer_code', 50);
             $table->string('manufacturer', 100);
             $table->float('price');
+            $table->integer('stock_balance')->unsigned();
             $table->foreignId('category_id')->constrained();
             $table->softDeletes();
             $table->timestamps();

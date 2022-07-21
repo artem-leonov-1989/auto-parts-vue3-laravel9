@@ -5,13 +5,9 @@
                 <h5 class="card-title">{{ name }}</h5>
             </div>
             <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted">{{ manufacturer_code }}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">({{ manufacturer }})</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{ manufacturer_code }}-{{ manufacturer }}</h6>
                 <h5 class="card-title">{{ price }} грн.</h5>
                 <button type="button" class="btn btn-primary">Придбати</button>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
     </div>

@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PartFactory extends Factory
 {
+    protected array $firms = [
+        'GM',
+        'HNH (Korea)',
+        'SHIN KUM',
+        'JC (Poland)',
+        'JPN (Poland)',
+        'OEM'
+        ];
     /**
      * Define the model's default state.
      *
@@ -19,10 +27,11 @@ class PartFactory extends Factory
         return [
             'name' => fake()->hexColor,
             'description' => fake()->realText('100'),
-            'manufacturer_code' => \Str::random(),
-            'manufacturer'=> fake()->company,
+            'manufacturer_code' => random_int(90000000, 99999999),
+            'manufacturer'=> fake()->randomElement($this->firms),
             'price' => fake()->randomFloat(2, 0, 9999),
-            'category_id' => random_int(1, 5)
+            'stock_balance' => random_int(1, 10),
+            'category_id' => random_int(1, 5),
         ];
     }
 }

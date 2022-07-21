@@ -43,17 +43,15 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $success = true;
             $message = 'User login successfully';
+            $response['user_name'] = Auth::user()->name;
+            $response['user_id'] = Auth::id();
         } else {
             $success = false;
             $message = 'Unauthorised';
         }
 
-        $response = [
-            'success' => $success,
-            'message' => $message,
-            'user_name' => Auth::user()->name,
-            'user_id' => Auth::id(),
-        ];
+        $response['success'] = $success;
+        $response['message'] = $message;
         return response()->json($response);
     }
 

@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-success me-2" @click="login">Увійти</button>
     </form>
     <form class="d-flex" v-else>
-        <div>{{ currentUser }}</div>
+        <div class="nav-item">{{ currentUser }}</div>
         <button type="button" class="btn btn-danger me-2" @click="logout">Вийти</button>
     </form>
 </template>
@@ -23,24 +23,27 @@ export default {
     },
     methods: {
         login() {
-            sanctum.get('sanctum/csrf-cookie')
-                .then(() => {
-                this.$query.post('/login', {
-                    email: this.email,
-                    password: this.password
-                })
-                    .then(response => {
-                        if (response.data.success){
-                            this.$store.commit('SET_USERNAME', response.data.user_name);
-                            this.$store.commit('SET_USERID', response.data.user_id);
-                        } else {
-                            this.error = response.data.message
-                        }
+            if (this.email.length > 0 && this.password.length > 0) {
+                sanctum.get('sanctum/csrf-cookie')
+                    .then(() => {
+                        this.$query.post('/login', {
+                            email: this.email,
+                            password: this.password
+                        })
+                            .then(response => {
+                                console.log(response.data)
+                                if (response.data.success) {
+                                    this.$store.commit('SET_USERNAME', response.data.user_name);
+                                    this.$store.commit('SET_USERID', response.data.user_id);
+                                } else {
+                                    this.error = response.data.message
+                                }
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
                     })
-                    .catch(function (error) {
-                        console.error(error);
-                    });
-            })
+            }
         },
         logout() {
             sanctum.get('/sanctum/csrf-cookie').then(() => {
