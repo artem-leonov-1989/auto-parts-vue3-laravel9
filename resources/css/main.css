@@ -2,3 +2,6 @@
     font-weight: bolder;
     color: white;
 }
+.router-link-active {
+    color: #ffc107;
+}
