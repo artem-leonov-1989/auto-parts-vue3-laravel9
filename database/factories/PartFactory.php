@@ -29,8 +29,9 @@ class PartFactory extends Factory
             'description' => fake()->realText('100'),
             'manufacturer_code' => random_int(90000000, 99999999),
             'manufacturer'=> fake()->randomElement($this->firms),
-            'price' => fake()->randomFloat(2, 0, 9999),
+            'price' => fake()->randomFloat(2, 0, 999),
             'stock_balance' => random_int(1, 10),
+            'auto_id' => random_int(1, 18),
             'category_id' => random_int(1, 5),
         ];
     }

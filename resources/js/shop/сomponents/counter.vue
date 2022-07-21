@@ -29,7 +29,8 @@ export default {
         card
     },
     props: {
-        idCategory: Number
+        idCategory: Number,
+        idAuto: Number,
     },
     data() {
         return {
@@ -54,6 +55,14 @@ export default {
             return this.parts.filter((value) => {
                 if (this.idCategory !== null) {
                     if (value.category_id === this.idCategory) {
+                        return value
+                    }
+                } else {
+                    return value
+                }
+            }).filter((value) => {
+                if (this.idAuto !== null) {
+                    if (value.auto_id === this.idAuto) {
                         return value
                     }
                 } else {

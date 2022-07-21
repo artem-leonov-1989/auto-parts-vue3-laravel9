@@ -7,22 +7,16 @@
     <form class="d-flex" v-else>
         <button type="button" class="btn btn-danger me-2" @click="logout">Вийти</button>
     </form>
-    <modal/>
 </template>
 
 <script>
 import {sanctum} from "../../config/axios";
-import modal from "./registration.vue";
 
 export default {
-    components: {
-        modal,
-    },
     data() {
         return {
             email: '',
             password: '',
-            loadingUser: false,
         }
     },
     methods: {
@@ -68,14 +62,9 @@ export default {
     },
     computed: {
         registered: function () {
-            this.loadingUser = true;
             this.$store.dispatch('GET_USER');
-            this.loadingUser = false;
             return this.$store.getters.USERNAME !== undefined;
         },
-        //currentUser() {
-        //    return this.$store.getters.USERNAME
-        //}
     },
 }
 </script>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,10 @@ Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanct
 Route::middleware('auth:sanctum')->get('user', [UserController::class, 'currentUser']);
 
 //Route::middleware(['auth','auth:sanctum'])->group(function() {
-    Route::apiResources([
-        'categories' => CategoryController::class,
-        'parts' => PartController::class,
-    ]);
+Route::apiResources([
+    'categories' => CategoryController::class,
+    'parts' => PartController::class,
+    'autos' => AutoController::class,
+]);
+
 //});
