@@ -14,12 +14,10 @@
                     :idAuto="idAuto">
                 </counter>
             </div>
-
         </div>
     </div>
 </template>
 <script>
-import navBar from "./nav-bar.vue";
 import counter from "./counter.vue";
 import filterCategory from "./filter-category.vue";
 import filterModel from "./filter-auto.vue";
@@ -27,7 +25,6 @@ import aboutUser from "./about-user.vue";
 
 export default {
     components: {
-        navBar,
         counter,
         filterCategory,
         filterModel,

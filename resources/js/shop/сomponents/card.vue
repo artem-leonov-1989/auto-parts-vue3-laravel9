@@ -21,6 +21,7 @@ export default {
         manufacturer_code: String,
         manufacturer: String,
         price: Number,
+        stock_balance: Number,
     }
 }
 </script>

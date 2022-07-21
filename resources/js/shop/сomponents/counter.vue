@@ -17,7 +17,8 @@
               :name=card.name
               :manufacturer_code=card.manufacturer_code
               :manufacturer=card.manufacturer
-              :price=card.price>
+              :price=card.price
+              :stock_balance=card.stock_balance>
         </card>
     </div>
 </template>

@@ -1,6 +1,7 @@
 .nav-link {
     font-weight: bolder;
     color: white;
+    font-size: large;
 }
 .router-link-active {
     color: #ffc107;
