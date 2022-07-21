@@ -8,6 +8,9 @@
             <div class="col-8">
                 <counter :idCategory = "idCategory"></counter>
             </div>
+            <div class="col-2">
+                <about-user></about-user>
+            </div>
         </div>
     </div>
 </template>
@@ -15,12 +18,14 @@
 import navBar from "./nav-bar.vue";
 import counter from "./counter.vue";
 import filterBar from "./filter.vue";
+import aboutUser from "./about-user.vue";
 
 export default {
     components: {
         navBar,
         counter,
         filterBar,
+        aboutUser,
     },
     data() {
         return {

@@ -5,15 +5,19 @@
         <button type="button" class="btn btn-success me-2" @click="login">Увійти</button>
     </form>
     <form class="d-flex" v-else>
-        <div class="nav-item">{{ currentUser }}</div>
         <button type="button" class="btn btn-danger me-2" @click="logout">Вийти</button>
     </form>
+    <modal/>
 </template>
 
 <script>
 import {sanctum} from "../../config/axios";
+import modal from "./registration.vue";
 
 export default {
+    components: {
+        modal,
+    },
     data() {
         return {
             email: '',
@@ -69,9 +73,9 @@ export default {
             this.loadingUser = false;
             return this.$store.getters.USERNAME !== undefined;
         },
-        currentUser() {
-            return this.$store.getters.USERNAME
-        }
+        //currentUser() {
+        //    return this.$store.getters.USERNAME
+        //}
     },
 }
 </script>
