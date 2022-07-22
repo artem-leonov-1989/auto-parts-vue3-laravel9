@@ -22,4 +22,9 @@ class Part extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function orders()
+    {
+        $this->belongsToMany(Order::class)->withPivot('count', 'price');
+    }
 }

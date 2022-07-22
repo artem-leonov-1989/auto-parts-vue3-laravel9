@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::apiResources([
     'autos' => AutoController::class,
 ]);
 
+Route::middleware('auth:sanctum')->apiResource('/orders', OrderController::class);
 //});

@@ -10,7 +10,7 @@
             ></basket-item>
         </div>
         <div class="d-grid gap-2 mt-3">
-            <button class="btn btn-primary" :disabled="!registered" type="button" @click="">Замовити</button>
+            <button class="btn btn-primary" :disabled="!registered" type="button" @click="checkout">Замовити</button>
         </div>
         <div class="alert alert-warning mt-3" role="alert" v-if="!registered">
            Щоб замовити, треба увійти до свого обликового запису, або
@@ -35,10 +35,17 @@ export default {
         }
     },
     methods: {
-
-    },
-    mounted() {
-        this.parts = JSON.parse(localStorage.basket);
+        checkout() {
+            this.$query.post('/orders')
+                .then(r => {
+                    console.log(r);
+                }).catch(function (error) {
+                console.log(error);
+            })
+        },
+        mounted() {
+            this.parts = JSON.parse(localStorage.basket);
+        }
     }
 }
 </script>
