@@ -58,7 +58,9 @@ export default {
         }
     },
     mounted() {
-        this.parts = JSON.parse(localStorage.basket);
+        if (localStorage.basket) {
+            this.parts = JSON.parse(localStorage.basket);
+        }
     }
 }
 </script>
