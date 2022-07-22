@@ -1,29 +1,33 @@
 <template>
-    <router-link to="/basket" class="nav-link me-2">Кошик {{ amountPurchases }} </router-link>
+    <router-link to="/basket" class="nav-link me-2">Кошик {{ amount }} </router-link>
 </template>
 
 <script>
-import authUser from "../mixins/authUser";
 
 export default {
-    mixins: [
-        authUser,
-    ],
-    computed: {
-        amountPurchases: function () {
+    methods: {
+         amountPurchases() {
             if (localStorage.basket) {
                 let sum = 0;
-                let basket = JSON.parse(localStorage.basket)
+                let basket = JSON.parse(localStorage.basket);
                 basket.forEach(
                     (part) => {
                         sum = sum + Number(part[1] * part[2]);
                     }
                 )
-                return '(' + sum + ') грн.';
+                this.amount = '(' + sum + ' грн.)';
             } else {
-                return '';
+                this.amount = '';
             }
         }
+    },
+    data() {
+        return {
+            amount: undefined,
+        }
+    },
+    mounted() {
+        let timerId = setInterval(() => {this.amountPurchases()}, 500);
     }
 }
 </script>

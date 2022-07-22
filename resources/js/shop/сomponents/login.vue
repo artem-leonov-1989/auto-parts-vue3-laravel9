@@ -4,7 +4,7 @@
         <input v-model="password" type="password" placeholder="пароль" class="form-control me-2">
         <button type="button" class="btn btn-success me-2" @click="login">Увійти</button>
     </form>
-    <form class="d-flex" v-else>
+    <form class="d-flex align-content-center" v-else>
         <button type="button" class="btn btn-danger me-2" @click="logout">Вийти</button>
     </form>
 </template>
@@ -17,6 +17,7 @@ export default {
         return {
             email: '',
             password: '',
+            userName: ''
         }
     },
     methods: {
