@@ -7,3 +7,6 @@
 .router-link-active {
     color: #ffc107;
 }
+.card-price {
+    font-size: 28px;
+}

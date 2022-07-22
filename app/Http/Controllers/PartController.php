@@ -21,7 +21,7 @@ class PartController extends Controller
 
     public function show($id)
     {
-        //
+        return new PartResource(Part::find($id));
     }
 
     public function update(Request $request, $id)
