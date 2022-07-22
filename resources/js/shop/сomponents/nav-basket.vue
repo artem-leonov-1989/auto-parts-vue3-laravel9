@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/basket" class="nav-link me-2">Кошик {{ amount }} </router-link>
+    <router-link to="/basket" class="nav-link">Кошик {{ amount }} </router-link>
 </template>
 
 <script>

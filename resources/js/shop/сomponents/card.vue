@@ -32,12 +32,13 @@ export default {
     methods: {
         addPartInBasket() {
             let basket;
+            let card = [this.id, 1, this.price, new Date()];
             if (localStorage.basket) {
                 basket = JSON.parse(localStorage.basket);
-                basket.push([this.id, 1, this.price]);
+                basket.push(card);
                 localStorage.basket = JSON.stringify(basket);
             } else {
-                basket = [[this.id, 1, this.price]];
+                basket = [card];
                 localStorage.basket = JSON.stringify(basket);
             }
         },

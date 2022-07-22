@@ -2,6 +2,7 @@
     font-weight: bolder;
     color: white;
     font-size: large;
+    margin-right: 30px;
 }
 .router-link-active {
     color: #ffc107;
