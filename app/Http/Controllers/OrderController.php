@@ -35,7 +35,7 @@ class OrderController extends Controller
         $user = User::find(Auth::id());
         $user->orders()->save($newOrder);
 
-        return response()->json($newOrder->order_number);
+        return response()->json(['order_number' => $newOrder->order_number]);
     }
 
     /**
