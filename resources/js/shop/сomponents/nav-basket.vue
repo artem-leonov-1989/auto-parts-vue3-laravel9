@@ -11,20 +11,17 @@ export default {
     ],
     computed: {
         amountPurchases: function () {
-            if (this.registered) {
-
+            if (localStorage.basket) {
+                let sum = 0;
+                let basket = JSON.parse(localStorage.basket)
+                basket.forEach(
+                    (part) => {
+                        sum = sum + Number(part[1] * part[2]);
+                    }
+                )
+                return '(' + sum + ') грн.';
             } else {
-                if (localStorage.basket) {
-                    let sum = 0;
-                    localStorage.basket.forEach(
-                        (part) => {
-                            sum = sum + Number(part.amount * part.price);
-                        }
-                    )
-                    return '(' + sum + ') грн.';
-                }  else {
-                    return '';
-                }
+                return '';
             }
         }
     }
