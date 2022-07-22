@@ -9,12 +9,23 @@
                          :count=part[1]
             ></basket-item>
         </div>
+        <div class="d-grid gap-2 mt-3">
+            <button class="btn btn-primary" :disabled="registered" type="button" @click="">Замовити</button>
+        </div>
+        <div class="alert alert-warning mt-3" role="alert" v-if="registered">
+           Щоб замовити, треба увійти до свого обликового запису, або
+            <button class="btn btn-success" type="button">Зареєструватися</button>
+        </div>
     </div>
 </template>
 
 <script>
 import basketItem from "./basket-item.vue";
+import authUser from "../mixins/authUser";
 export default {
+    mixins: [
+        authUser
+    ],
     components: {
         basketItem,
     },
@@ -22,6 +33,9 @@ export default {
         return {
             parts: [],
         }
+    },
+    methods: {
+
     },
     mounted() {
         this.parts = JSON.parse(localStorage.basket);

@@ -15,7 +15,7 @@ export default {
                         sum = sum + Number(part[1] * part[2]);
                     }
                 )
-                this.amount = '(' + sum + ' грн.)';
+                this.amount = '(' + sum.toFixed(2) + ' грн.)';
             } else {
                 this.amount = '';
             }
