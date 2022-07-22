@@ -10,9 +10,9 @@
             ></basket-item>
         </div>
         <div class="d-grid gap-2 mt-3">
-            <button class="btn btn-primary" :disabled="registered" type="button" @click="">Замовити</button>
+            <button class="btn btn-primary" :disabled="!registered" type="button" @click="">Замовити</button>
         </div>
-        <div class="alert alert-warning mt-3" role="alert" v-if="registered">
+        <div class="alert alert-warning mt-3" role="alert" v-if="!registered">
            Щоб замовити, треба увійти до свого обликового запису, або
             <button class="btn btn-success" type="button">Зареєструватися</button>
         </div>
